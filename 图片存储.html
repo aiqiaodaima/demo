@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input id="haorooms_btn" type="button" value="图片显示">
+    	<div id="haorooms_div"></div>
+
+	</body>
+	<script type="text/javascript">
+		function imgsrc ( key ) {
+			var img = new Image;
+		    canvas = document.createElement("canvas");
+		    ctx = canvas.getContext("2d");
+		    src = "http://seopic.699pic.com/photo/40005/2371.jpg_wh1200.jpg";
+//			src = $("#hlv").val();
+		    img.crossOrigin = "Anonymous";
+		    img.onload = function() {
+		        canvas.width = img.width;
+		        canvas.height = img.height;
+		        ctx.drawImage( img, 0, 0 );
+		        localStorage.setItem( key, canvas.toDataURL("image/png") );
+		    }
+		    img.src = src;
+		    if ( img.complete || img.complete === undefined ) {
+		        img.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
+		        img.src = src;
+		    }
+		}
+		function get(div,key){//读取get(容器,图片)
+		    var srcStr = localStorage.getItem(key);
+		    var imgObj = document.createElement('img');
+		    imgObj.src = srcStr;
+		    div.appendChild(imgObj);
+		}
+		imgsrc("savedImageData");
+	    var haoroomsbtn = document.getElementById('haorooms_btn');
+	    var oDiv = document.getElementById('haorooms_div');
+	    haoroomsbtn.onclick = function(){
+	        get(oDiv,"savedImageData");
+	    }
+	</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title </head>
+
+		<body>
+			<div id="myDiv">
+
+			</div>
+		</body>
+		<script type="text/javascript">
+			var a = new XMLHttpRequest();
+			a.open('get', 'https://api.douban.com/v2/book/search', true);
+			a.send();
+
+			a.onload = function() {
+				if(a.readyState == 4) {
+					if(a.status >= 200 && a.status <= 207) {
+						console.log(a.responseText)
+					}
+				}
+			}
+			
+//			function fn(x) {
+//				console.log(arguments,x)
+//			}
+//			fn(1)
+//			function foo(x) {
+//				
+//			    alert(x); // 10
+//			    for (var i=0; i<arguments.length; i++) {
+//			        console.log(arguments[i]); // 10, 20, 30
+//			    }
+//			}
+//			foo(10, 20, 30);
+			
+			
+//			
+//			function jsonp(obj) {
+//				obj.callback = obj.callback || 'cb';
+//				obj.fnName = obj.fnName || "jQuery" + ('' + Math.random()).replace(/0\./, '');
+//				var opation = obj.item;
+//				opation[obj.callback] = obj.fnName;
+//				var arr = [];
+//				for(var attr in opation) {
+//					arr.push(attr + '=' + opation[attr])
+//				}
+//				var oS = document.createElement('script');
+//				oS.src = obj.url + '?' + arr.join('&');
+//				document.body.appendChild(oS);
+//
+//				window[obj.fnName] = function(data) {
+//					obj.success(data);
+//					oS.remove();
+//				}
+//			}
+		</script>
+
+</html>

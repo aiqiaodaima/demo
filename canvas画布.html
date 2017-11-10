@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+	      canvas { border: 10px solid black;}
+	    </style>
+	</head>
+	<body>
+		<canvas id="canvas" width="300" height="300">
+			<p>你的浏览器不支持canvas</p>
+		</canvas>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+//		ctx.fillStyle = 'green';
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		
+//		ctx.fillStyle = "rgb(200,0,0)";
+//      ctx.fillRect (10, 10, 55, 50);
+//
+//      ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+//      ctx.fillRect (30, 30, 55, 50);   //设置矩形和颜色
+
+//		ctx.fillRect(25,25,100,100);
+//	    ctx.clearRect(25,45,60,60);
+//	    ctx.strokeRect(60,60,100,60);  //填充矩形 透明矩形  边框矩形
+
+		ctx.beginPath();
+	    ctx.moveTo(75,50);
+	    ctx.lineTo(100,75);
+	    ctx.lineTo(100,25);
+//	    ctx.lineTo(75,50);
+	    ctx.fill();
+	    var imgData = document.getElementById("canvas").toDataURL("image/jpeg");  
+		   // 上传到后台。  
+		   $.ajax({  
+		        type: "post",         
+		        url:"$!front_url/uploadImg",  
+		        data: {image : imgData},  
+		        async: true,  
+		        success: function (htmlVal) {  
+		              alert("另存图片成功！");  
+		        },  
+				error: function(data) {  
+		            alert(e.responseText); //alert错误信息   
+		       }  
+		   });  
+	</script>
+</html>

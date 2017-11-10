@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<label for="name">name</label>
+		<input type="text" name="name" id="name" value=""/>
+		<br />
+		<label for="pass">pass</label>
+		<input type="password" name="pass" id="pass" value=""/>
+		<br />
+		<label for="report">提交</label>
+		<input type="file" name="report" id="report" accept="image/png,image/gif" value=""/>
+		<label for="remember">记住密码</label>
+		<input type="checkbox" name="remember" id="remember" value=""/>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		var storage = window.localStorage;
+		$('#remember').change(function  () {
+			fn()
+		})
+		function fn () {
+			if ($('#remember').is(':checked')) {
+				storage["name"] = $("#name").val();
+		     	storage["pass"] = $("#pass").val();
+		     	storage["report"] = $("#report").val();
+			    storage["isstorename"] =  "yes"; 
+			} else{
+				storage["name"] = '';
+		     	storage["pass"] = '';
+		     	storage["report"] = '';
+			    storage["isstorename"] =  "no"; 
+			}
+		}
+		
+		if("yes" == storage["isstorename"]){
+		    $("#remember").attr("checked", true);
+		    $("#name").val(storage["name"]);
+		    $("#pass").val(storage["pass"]);
+		    $("#report").val(storage["report"]);
+	  	}
+		var imgCanvas = document.createElement_x("canvas"),
+ 		imgContext = imgCanvas.getContext("2d");
+ 		imgCanvas.width = elephant.width;
+		imgCanvas.height = elephant.height;
+		imgContext.drawImage(elephant, 0, 0, elephant.width, elephant.height);
+	</script>
+</html>

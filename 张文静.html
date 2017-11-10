@@ -1,0 +1,106 @@
+
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>张文静，我爱你</title>
+		
+
+		<meta name="description" content="你的出现，占满了我的视线，我愿跟随你永远" />
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link href="http://www.zaiyiqiba.com/aini/i/csss/default.css" tppabs="default.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="http://www.zaiyiqiba.com/aini/i/js/jquery.js" tppabs="/js/jquery.js"></script>
+		<script type="text/javascript" src="http://www.zaiyiqiba.com/aini/i/js/garden.js" tppabs="/js/garden.js"></script>
+		<script type="text/javascript" src="http://www.zaiyiqiba.com/aini/i/js/functions.js" tppabs="/js/functions.js"></script>
+		<style>
+			.divcss5 {
+				width: 0px;
+				height: 0px;
+				line-height: 0px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+		<body>
+			<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="http://music.163.com/outchain/player?type=2&id=432506809&auto=1&height=66"></iframe>
+			<div id="mainDiv">
+				<div id="content">
+					<div id="code">
+						<span class="comments">
+				
+							<p>静宝宝,你那么瘦小的身体，为什么能占满我的目光</p>
+							<p>自从遇见你那天开始，我的心就像跌进深深的湖水，推不开躲不掉，心一直想往你身上靠</p>
+							<p>情不知所起 一往情深</p>
+							<p>我爱你的那天 就像喝了最甜的酒 吹了最暖的风</p>
+							<p>之前我不相信一见钟情，但是见到你的那一刻，我否定了我的看法。我的心为你沦陷，从此只为你跳动</p>
+							<p>有一种爱的感觉，叫感同身受。有一种爱的默契，叫心有灵犀。有一种爱的承诺，叫天长地久</p>
+							<p>情深不及久伴 厚爱无需多言</p>
+							<p>跟我走吧 忐忑给你 情书给你 不眠的夜给你</p>
+							<p>四月的清晨给你 雪糕的第一口给你 海底捞最后一颗鱼丸给你 </p>
+							<p>手给你 怀抱给你 车票给你 跋涉给你 等待给你 钥匙给你 家给你 </p>
+							<p>一腔孤勇和余生六十年 全都给你</p>
+							
+							
+						</span>
+					
+					</div>
+					<div id="loveHeart">
+						<canvas id="garden"></canvas>
+						<div id="words">
+							<div id="messages">
+								我们已经在一起...
+								<div id="elapseClock"></div>
+							</div>
+							<div id="loveu">
+								最爱你的<br/>
+								<div class="signature">黎生</div>
+							</div>
+						</div>
+					</div>
+
+					
+
+				</div>
+
+			</div>
+
+			<script type="text/javascript">
+				var offsetX = $("#loveHeart").width() / 2;
+				var offsetY = $("#loveHeart").height() / 2 - 55;
+				var together = new Date();
+				var strs = "2017-07-25 00:00:00";
+				var nowTime = new Date();
+				var together = new Date(strs.replace(/-/g, "/"));
+
+				if(!document.createElement('canvas').getContext) {
+					var msg = document.createElement("div");
+					msg.id = "errorMsg";
+					msg.innerHTML = "提醒您：您的浏览器版本过旧^_^<br/>" +
+						"推荐使用 <a href='http://51bbw.cn/liulanqi' target='_blank'>百度浏览器</a><br/>请先升级您的浏览器，效果很炫哦~~";
+					document.body.appendChild(msg);
+					$("#code").css("display", "none")
+					$("#copyright").css("position", "absolute");
+					$("#copyright").css("bottom", "10px");
+					document.execCommand("stop");
+				} else {
+					setTimeout(function() {
+						adjustWordsPosition();
+						startHeartAnimation();
+					}, 5000);
+
+					timeElapse(together);
+					setInterval(function() {
+						timeElapse(together);
+					}, 500);
+
+					adjustCodePosition();
+					$("#code").typewriter();
+				}
+			</script>
+
+			<div>
+			</div>
+		</body>
+
+</html>

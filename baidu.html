@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="ipt" value="" />
+		<input type="button" id="btn" value="查找" />
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$('#btn').click(function  () {
+			
+		})
+//		$("#ipt").val()
+		$.ajax({
+			type:"get",
+			url:"http://www.baidu.com/s?wd=我",
+			async:true,
+			success:function  (data) {
+				console.log(data)
+			}
+		});
+	</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+       <script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" type="text/css" href="css/new_file.css"/>
+    </head>
+    <body>
+        <div id="app">
+		    <p>{{ message }}</p>
+		    <input type="text" v-model="message"/>
+		</div>
+		<div>
+			<img src="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201604/18115056skle92lv.jpg"/>
+			<img href="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201604/18115056skle92lv.jpg" alt="" />
+		</div>
+    </body>
+  
+    <script>
+        
+//      var vm = new Vue({
+//          el: '#app',
+//          data: {
+//              message:'li'
+//          }
+//      })
+        localStorage.uid = 1;  
+localStorage.sex='nan';  
+localStorage.age = 23;  
+for ( var i = 0, len = localStorage.length; i < len; ++i ) {  
+    console.log( localStorage.key( i ) +':' + localStorage.getItem(localStorage.key( i ))  );  
+}  
+    </script>
+</html>

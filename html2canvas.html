@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				background-color: red;
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			这是截屏工具
+		</div>
+	</body>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script type="text/javascript" src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
+	<script type="text/javascript">
+		var div = document.getElementsByTagName('div')[0]
+		html2canvas(div, {
+		    allowTaint: true,
+		    taintTest: false,
+		    onrendered: function(canvas) {
+		        canvas.id = "mycanvas";
+		        //document.body.appendChild(canvas);
+		        //生成base64图片数据
+		        var dataUrl = canvas.toDataURL();
+		        var newImg = document.createElement("img");
+		        newImg.src =  dataUrl;
+		        document.body.appendChild(newImg);
+		        $(document).attr( 'download' , 'myjobdeer.jpg' ) ;
+		        
+		    }
+		});
+		
+		
+		
+//		var type = 'png';
+//		var imgData = canvas.toDataURL(type);
+//		var _fixType = function(type) {
+//		    type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+//		    var r = type.match(/png|jpeg|bmp|gif/)[0];
+//		    return 'image/' + r;
+//		};
+//		imgData = imgData.replace(_fixType(type),'image/octet-stream');
+//		var saveFile = function(data, filename){
+//		    var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+//		    save_link.href = data;
+//		    save_link.download = filename;
+//		   
+//		    var event = document.createEvent('MouseEvents');
+//		    event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+//		    save_link.dispatchEvent(event);
+//		};
+//		   
+//		// 下载后的问题名
+//		var filename = '医联体图片' + (new Date()).getTime() + '.' + type;
+//		// download
+//		window.ondblclick = function () {
+//			saveFile(imgData,filename);
+//		}
+	</script>
+</html>

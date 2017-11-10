@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="color">
+		<input type="submit" name="" id="" value="提交" />
+	</body>
+	<script type="text/javascript">
+		var ipt = document.querySelectorAll('input');
+		var bod = document.querySelectorAll('body');
+		var localstroage = window.localStorage;
+		fn()
+		ipt[0].onchange = function  () {
+			localstroage.setItem('color',ipt[0].value);
+			fn()	
+		}
+		function fn () {
+			var cor = localstroage.getItem('color')
+			console.log(localstroage.getItem('color'));
+			ipt[0].value = localstroage.getItem('color');
+			bod[0].style.backgroundColor=cor;
+			
+		}
+		
+	</script>
+</html>

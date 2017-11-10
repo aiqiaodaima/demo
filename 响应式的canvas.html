@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="wrapper">
+		      <canvas id="canvas1" height="50" width="300"></canvas>
+		      <canvas id="canvas2" height="50" width="300"></canvas>
+		</div>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		function resizeCanvas(){  
+		      var width = document.getElementById('wrapper').offsetWidth;  
+		      $('#canvas1').attr('width', width);  
+		      $('#canvas2').attr('width', width);  
+		}
+		resizeCanvas()
+//		var context = document.getElementById('canvas1').getContext('2d');  
+//		var width = $('#canvas').attr('width');  
+//		$('#canvas1').attr('width',0);  
+//		$('#canvas1').attr('width',width);  
+//		context.clearRect(0, 0, width, $('#canvas1').attr('height'));  
+	</script>
+</html>

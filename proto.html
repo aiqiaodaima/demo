@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		/*var a = {};
+		console.log(a)
+		console.log(a.prototype);  //undefined
+		console.log(a.__proto__);  //Object {} 
+		
+		var b = function(){}
+		console.log(b)
+		console.log(b.prototype);  //b {}
+		console.log(b.__proto__);  //function() {}
+		
+		console.log(Array.prototype)*/
+		
+		
+			/*function Person(name){                             //构造函数
+                this.name=name;
+            }
+            
+            Person.prototype.printName=function() //原型对象
+            {
+                alert(this.name);
+            }
+            
+            var person1=new Person('Byron');//实例化对象
+            console.log(person1.__proto__);//Person
+            console.log(person1.constructor);//自己试试看会是什么吧
+            console.log(Person.prototype);//指向原型对象Person
+            var person2=new Person('Frank');*/
+           
+        
+		    function Animal(name)   //积累构造函数
+		    {
+		        this.name = name;//设置对象属性
+		    }
+		    
+		    Animal.prototype.behavior = function() //给基类构造函数的prototype添加behavior方法
+		    {  
+		        alert("this is a "+this.name);
+		    }
+		    
+		    var Dog = new Animal("dog");//创建Dog对象
+		    var Cat = new Animal("cat");//创建Cat对象
+		    
+		    Dog.behavior();//通过Dog对象直接调用behavior方法
+		    Cat.behavior();//output "this is a cat"
+		    
+		    alert(Dog.behavior==Cat.behavior);//output true;
+
+			console.log(Dog.behavior,Cat.behavior)
+
+	</script>
+</html>

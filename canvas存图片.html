@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="600" height="600"></canvas>
+	</body>
+	
+	<script type="text/javascript">
+		function drawBeauty(beauty){
+			var mycv = document.getElementById("canvas");  
+			var myctx = mycv.getContext("2d");
+			myctx.drawImage(beauty, 0, 0);
+		}
+		function load(){
+			var beauty = new Image();  
+			beauty.src = "img/170x170.png"; 
+			if(beauty.complete){
+			    drawBeauty(beauty);
+			}else{
+			    beauty.onload = function(){
+			       drawBeauty(beauty);
+			    };
+			    beauty.onerror = function(){
+			       window.alert('美女加载失败，请重试');
+			    };
+			};   
+		}//load
+		if (document.all) {
+		  	window.attachEvent('onload', load);  
+	  	}else {  
+		  	window.addEventListener('load', load, false);
+	  	}
+	  	
+	  	
+	  	var type = 'png';
+		var imgData = canvas.toDataURL(type);
+		var _fixType = function(type) {
+		    type = type.toLowerCase().replace(/jpg/i, 'jpeg');
+		    var r = type.match(/png|jpeg|bmp|gif/)[0];
+		    return 'image/' + r;
+		};
+		imgData = imgData.replace(_fixType(type),'image/octet-stream');
+		var saveFile = function(data, filename){
+		    var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+		    save_link.href = data;
+		    save_link.download = filename;
+		   
+		    var event = document.createEvent('MouseEvents');
+		    event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+		    save_link.dispatchEvent(event);
+		};
+	</script>
+</html>

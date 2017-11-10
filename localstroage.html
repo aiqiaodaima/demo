@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1px" cellspacing="" cellpadding="">
+			<tr class="act">
+				
+			</tr>
+			<tr class="act">
+				
+			</tr>
+			<tr class="act">
+				
+			</tr>
+			<tr class="act">
+				
+			</tr>
+			<tr class="act">
+				
+			</tr>
+			<tr class="act">
+				
+			</tr>
+		</table>
+		
+	</body>
+	<script type="text/javascript">
+		var obj = { sql: [
+               { "ID": "1", "病人姓名": "张三", "性别": "男","出生日期": "2000/10/10", "检查日期": "2000/10/10", "检查ID": "1",
+               	 "操作号": "1", "图像类型": "jpg", "序列号": "1","图像数": "1", "检查部位": "头部", "报告状态": "已检查"		
+               }, { "病人ID": "2", "病人姓名": "李四", "性别": "男","出生日期": "2000/10/10", "检查日期": "2000/10/10", "检查ID": "1",
+               	 "操作号": "1", "图像类型": "jpg", "序列号": "1","图像数": "1", "检查部位": "头部", "报告状态": "已检查"		
+               }, { "病人ID": "3", "病人姓名": "王五", "性别": "男","出生日期": "2000/10/10", "检查日期": "2000/10/10", "检查ID": "1",
+               	 "操作号": "1", "图像类型": "jpg", "序列号": "1","图像数": "1", "检查部位": "头部", "报告状态": "已检查"		
+               }, { "病人ID": "4", "病人姓名": "赵麻子", "性别": "男","出生日期": "2000/10/10", "检查日期": "2000/10/10", "检查ID": "1",
+               	 "操作号": "1", "图像类型": "jpg", "序列号": "1","图像数": "1", "检查部位": "头部", "报告状态": "已检查"		
+               }, { "病人ID": "5", "病人姓名": "武大郎", "性别": "男","出生日期": "2000/10/10", "检查日期": "2000/10/10", "检查ID": "1",
+               	 "操作号": "1", "图像类型": "jpg", "序列号": "1","图像数": "1", "检查部位": "头部", "报告状态": "已检查"		
+               }]
+                
+        };
+        
+        //转化成JSON格式，因为localstroage只支持字符串存储。
+		obj = JSON.stringify(obj);
+		
+		localStorage.setItem("information",obj);
+		
+		//转化成对象格式，方便对数据的处理
+		obj=JSON.parse(localStorage.getItem("information"));
+		console.log(obj.sql[0])
+		var act = document.getElementsByClassName('act');
+		for(var p in obj.sql[0]){
+			act[0].innerHTML +='<th>'+ p + '</th>';
+		}
+		for (var i =0;i<obj.sql.length;i++) {
+			for(var p in obj.sql[i]){
+				act[i+1].innerHTML +='<td>'+ obj.sql[i][p]+ '</td>';
+			}
+		}
+		
+//		localStorage.clear() 可以清除数据
+		
+		
+	</script>
+</html>
