@@ -51,8 +51,13 @@
 //          console.log(stream);
 
             mediaStreamTrack = typeof stream.stop === 'function' ? stream : stream.getTracks()[1];
-			
-            video.src = (window.URL || window.webkitURL).createObjectURL(stream);
+		try {
+        video.src = (window.URL || window.webkitURL).createObjectURL(stream);
+      } catch (e) {
+        // google 提供的新方法
+        video.srcObject = stream;
+      }
+            //video.src = (window.URL || window.webkitURL).createObjectURL(stream);
             video.play();
         }).catch(function(err) {
             console.log(err);
